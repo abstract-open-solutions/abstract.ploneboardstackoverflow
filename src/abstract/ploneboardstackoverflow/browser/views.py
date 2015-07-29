@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-
+from plone import api
 from Products.Five import BrowserView
 
 from ..extenders import get_checked
@@ -11,6 +11,15 @@ class CheckedSnippetView(BrowserView):
 
     def is_checked(self):
         return get_checked(self.context)
+
+    def can_update(self):
+        """ return True if the current user can update checked status
+        """
+        user = api.user.get_current()
+        conversation = self.context.getConversation()
+        creator = conversation.Creator()
+        # only conversation creator can do this!
+        return user.getId() == creator
 
 
 class CheckedAjax(BrowserView):

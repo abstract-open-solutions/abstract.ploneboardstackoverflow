@@ -1,6 +1,6 @@
-===========================================================
+================================
 abstract.ploneboardstackoverflow
-==============================================================================
+================================
 
 Adds stackoverflow-like features to PloneBoard comments.
 
@@ -16,6 +16,8 @@ Clicking on the checkbox will mark that comment as "checked" (like "right answer
 uncheck all the others and reindex changed values.
 
 You can use `comment_is_checked` index to search and sort comments.
+
+NOTE: only Conversation's creator is allowed to update checked status.
 
 
 Translations

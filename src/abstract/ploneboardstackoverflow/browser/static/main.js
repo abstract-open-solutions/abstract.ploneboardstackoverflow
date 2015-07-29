@@ -3,7 +3,7 @@
 
 
     $(document).ready(function () {
-      $('.boardConversation input[name="is_checked"]').click(function () {
+      $('.boardConversation input[name="is_checked"]:not(:disabled)').click(function () {
         var self = this,
             is_checked = $(this).is(':checked'),
             comment_uid = $(this).val();
