@@ -1,0 +1,15 @@
+<div class="checked-snippet"
+     tal:define="is_checked view/is_checked"
+     tal:attributes="class python:'checked-snippet' + (is_checked and ' is-checked' or '')">
+    <input
+        name="is_checked"
+        type="checkbox"
+        tal:attributes="id string:is-checked-${context/UID};
+                        value context/UID;
+                        checked python: is_checked and 'checked' or None"
+        />
+    <label
+        tal:attributes="for string:is-checked-${context/UID};">
+        checked?
+    </label>
+</div>

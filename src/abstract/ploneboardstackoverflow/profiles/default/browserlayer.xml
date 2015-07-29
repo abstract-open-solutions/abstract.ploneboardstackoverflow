@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+    name="abstract.ploneboardstackoverflow"
+    interface="abstract.ploneboardstackoverflow.interfaces.ILayer"
+  />
+</layers>

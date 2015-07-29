@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+
+ <index name="comment_is_checked" meta_type="BooleanIndex">
+  <indexed_attr value="comment_is_checked"/>
+ </index>
+ <column value="comment_is_checked" />
+
+</object>

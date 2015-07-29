@@ -1,0 +1,37 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  i18n_domain="abstract.ploneboardstackoverflow">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+    directory="overrides"
+    layer="abstract.ploneboardstackoverflow.interfaces.ILayer"
+    />
+
+  <!-- Publish static files -->
+  <browser:resourceDirectory
+    name="abstract.ploneboardstackoverflow"
+    directory="static"
+    />
+
+  <browser:page
+    for="*"
+    name="checked-snippet"
+    class=".views.CheckedSnippetView"
+    template="checked_snippet.pt"
+    permission="zope2.View"
+    layer="abstract.ploneboardstackoverflow.interfaces.ILayer"
+    />
+
+  <browser:page
+    for="*"
+    name="checked-update"
+    class=".views.CheckedAjax"
+    permission="zope2.View"
+    layer="abstract.ploneboardstackoverflow.interfaces.ILayer"
+    />
+
+</configure>

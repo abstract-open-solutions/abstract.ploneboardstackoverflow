@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts" meta_type="JavaScripts Registry">
+
+ <javascript
+    id="++resource++abstract.ploneboardstackoverflow/main.js"
+    enabled="True"
+    authenticated="False"
+    bundle="jquery"
+    cacheable="True"
+    compression="safe"
+    conditionalcomment=""
+    cookable="True"
+    expression=""
+    inline="False"
+    insert-after="*"
+    />
+
+</object>
