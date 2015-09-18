@@ -38,3 +38,7 @@
 .checked-snippet label{
     background-image:url(checkmark.png);
 }
+
+#LSResult {
+    margin: 0em 0px 0px -7em;
+}

@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="abstract.ploneboardstackoverflow">
+
+  <genericsetup:upgradeStep
+        title="Upgrade to abstract.ploneboardstackoverflow 0.2"
+        description="Migrates collective.analyticspanel to 1010"
+        source="1000"
+        destination="1010"
+        handler=".setuphandlers.migrateTo1010"
+        sortkey="1"
+        profile="abstract.ploneboardstackoverflow:default"
+    />
+
+</configure>

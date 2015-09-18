@@ -49,6 +49,15 @@ class CommentExtender(object):
                 visible={'view': 'invisible', 'edit': 'invisible'},
             ),
         ),
+        _ExtensionBooleanField(
+            'is_main_comment',
+            default=False,
+            widget=atapi.BooleanWidget(
+                label=_(u"Main comment"),
+                description=_(u"This comment if the main (first) one, that identify the conversation"),
+                visible={'view': 'invisible', 'edit': 'invisible'},
+            ),
+        ),
     ]
 
     def __init__(self, context):

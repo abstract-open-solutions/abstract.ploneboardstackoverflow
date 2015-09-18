@@ -19,7 +19,7 @@ long_description = (
 
 setup(
     name='abstract.ploneboardstackoverflow',
-    version='0.1',
+    version='0.2',
     description="A PloneBoard extension to mimic stackoverflow features",
     long_description=long_description,
     # Get more from http://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -48,6 +48,7 @@ setup(
         'Products.Ploneboard',
         'cioppino.twothumbs',
         'archetypes.schemaextender',
+        'collective.monkeypatcher',
     ],
     extras_require={
         'test': [

@@ -4,6 +4,10 @@
  <index name="comment_is_checked" meta_type="BooleanIndex">
   <indexed_attr value="comment_is_checked"/>
  </index>
+ <index name="is_main_comment" meta_type="BooleanIndex">
+  <indexed_attr value="is_main_comment"/>
+ </index>
+
  <column value="comment_is_checked" />
 
 </object>
