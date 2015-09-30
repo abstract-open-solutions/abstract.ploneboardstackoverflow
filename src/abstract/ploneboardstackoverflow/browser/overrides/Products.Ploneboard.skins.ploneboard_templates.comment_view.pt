@@ -18,7 +18,8 @@
     </metal:css>
 
     <div metal:fill-slot="main"
-         tal:define="view context/@@singlecomment_view">
+         tal:define="view context/@@singlecomment_view;
+                     show_viewlets show_viewlets|python:True;">
 
       <div tal:replace="structure provider:plone.abovecontenttitle" />
 
@@ -41,10 +42,11 @@
 
       <div tal:replace="structure provider:plone.abovecontentbody" />
 
-<div tal:content="structure here/@@rate-if-you-dare"/>
+      <div tal:condition="show_viewlets"
+           tal:content="structure here/@@rate-if-you-dare"/>
 
       <div class="boardComment visualIEFloatFix"
-           tal:define="comment python:view/comment">
+           tal:define="comment python:view/comment;">
 
         <metal:comment metal:define-macro="comment"
                        tal:define="creator comment/Creator;
@@ -52,7 +54,10 @@
                                    creatorinfo python: mtool.getMemberInfo(creator);
                                    creation_date comment/creation_date;
                                    state comment/review_state;
-                                   pss modules/Products/PythonScripts/standard">
+                                   pss modules/Products/PythonScripts/standard;
+                                   show_viewlets show_viewlets|python:True;
+                                   in_reply_to comment/in_reply_to;
+                                   ">
 
           <div class="visualGhosted" tal:omit-tag="python:state not in ('retracted', 'rejected')">
 
@@ -81,12 +86,12 @@
               </div>
             </div>
 
-           <div tal:content="structure comment/getObject/@@rate-if-you-dare" />
-           <div tal:content="structure comment/getObject/@@checked-snippet" />
+           <div tal:condition="show_viewlets" tal:content="structure comment/getObject/@@rate-if-you-dare" />
+           <div tal:condition="python:show_viewlets and not in_reply_to" tal:content="structure comment/getObject/@@checked-snippet" />
 
             <div class="boardCommentBody">
               <tal:block define="portrait python:here.portal_membership.getPersonalPortrait(creator);">
-                <div class="commentPortrait">
+                <div class="commentPortrait" tal:condition="not:in_reply_to">
                   <a href="" title="View profile"
                      tal:attributes="href string:${portal_url}/author/${creator}"
                      i18n:attributes="title"
@@ -180,12 +185,13 @@
           <!-- bis hier-->
 
           <div class="boardCommentReplyActions"
-           tal:condition="show_comment_actions|python:True"
+               tal:condition="python: not comment['is_main_comment'] and not in_reply_to"
                tal:define="isAnon isAnon | context/@@plone_portal_state/anonymous">
 
             <form tal:condition="comment/canReply"
                   tal:attributes="action string:${comment/absolute_url}/add_comment_form#${comment/getId}">
               <input type="hidden" name="title" value="" tal:attributes="value comment/Title"/>
+              <input type="hidden" name="in_reply_to" value="" tal:attributes="value comment/getId"/>
               <input class="standalone"
                      type="submit"
                      value="Reply to this"

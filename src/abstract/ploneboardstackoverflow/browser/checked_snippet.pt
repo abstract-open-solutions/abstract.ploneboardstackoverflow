@@ -3,7 +3,7 @@
                  can_update view/can_update;
                  klass python:'checked-snippet' + (is_checked and ' is-checked' or '');
                  klass python: klass + (can_update and ' can-update' or ' cannot-update')"
-     tal:condition="python: can_update or (not can_update and is_checked)"
+     tal:condition="python: not context.is_main_comment and (can_update or (not can_update and is_checked))"
      tal:attributes="class klass">
     <input
         name="is_checked"

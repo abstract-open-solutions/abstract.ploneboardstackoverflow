@@ -42,3 +42,14 @@
 #LSResult {
     margin: 0em 0px 0px -7em;
 }
+
+.answerComment {
+    padding-left: 3em;
+}
+.answerComment .boardCommentBody {
+    font-size: 80%;
+}
+.answerComment .boardCommentActions {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}

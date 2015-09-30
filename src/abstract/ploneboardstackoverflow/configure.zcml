@@ -21,6 +21,30 @@
         replacement=".monkeys.addConversation"
         />
 
+    <monkey:patch
+        description="addComment will also set the _reply_to attribute"
+        class="Products.Ploneboard.content.PloneboardComment.PloneboardComment"
+        original="addReply"
+        preserveOriginal="True"
+        replacement=".monkeys.addReply"
+        />
+
+    <monkey:patch
+        description="addComment will also set the _reply_to attribute"
+        class="Products.Ploneboard.browser.comment.CommentViewableView"
+        original="_buildDict"
+        preserveOriginal="True"
+        replacement=".monkeys._buildDict"
+        />
+
+    <monkey:patch
+        description="addComment will also set the _reply_to attribute"
+        class="Products.Ploneboard.browser.comment.CommentView"
+        original="quotedBody"
+        replacement=".monkeys.quotedBody"
+        />
+
+
     <genericsetup:registerProfile
         name="default"
         title="abstract.ploneboardstackoverflow"
@@ -50,6 +74,10 @@
     <adapter
         name="comment_is_checked"
         factory=".indexers.comment_is_checked"
+        />
+    <adapter
+        name="in_reply_to"
+        factory=".indexers.in_reply_to"
         />
     <adapter
         name="comment_is_checked"

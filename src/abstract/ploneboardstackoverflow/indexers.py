@@ -12,6 +12,11 @@ def comment_is_checked(obj):
     return get_checked(obj)
 
 
+@indexer(IComment)
+def in_reply_to(obj):
+    return obj._in_reply_to
+
+
 @indexer(Interface)
 def comment_is_checked_others(obj):
     """ avoid indexing for any other content
