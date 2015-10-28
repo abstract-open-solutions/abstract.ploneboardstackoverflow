@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.3 (Unreleased)
+----------------
+
+- New ``@@all-questions`` view: display all questions
+  in the site, like Stackoverflow "newset" page.
+
 0.2 (Unreleased)
 ----------------
 

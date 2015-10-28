@@ -28,6 +28,15 @@
 
   <browser:page
     for="*"
+    name="all-questions"
+    class=".all_questions.AllQuestionsView"
+    template="all.pt"
+    permission="zope2.View"
+    layer="abstract.ploneboardstackoverflow.interfaces.ILayer"
+    />
+
+  <browser:page
+    for="*"
     name="checked-update"
     class=".views.CheckedAjax"
     permission="zope2.View"

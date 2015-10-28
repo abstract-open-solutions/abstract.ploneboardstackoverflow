@@ -1,0 +1,57 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="abstract.ploneboardstackoverflow">
+
+<body>
+  <div metal:fill-slot="main">
+
+    <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+    <h1 class="documentFirstHeading" i18:translate="">
+      All Questions
+    </h1>
+
+    <div tal:replace="structure provider:plone.abovecontentbody" />
+
+      <div class="allPBQuestions" tal:define="batch view/results">
+          <div class="questionItem" tal:repeat="question batch">
+            <div class="counts">
+                <div class="countElement">Votes: <span tal:replace="question/positive_ratings" /></div>
+                <div class="countElement">Answers: <span tal:replace="python:view.total_comments(question)" /></div>
+            </div>
+            <div class="questionData">
+                <h3><a href="" tal:attributes="href question/getURL"
+                       tal:content="question/Title" >Kalman Filter Matrix Dimensions Mismatch at Estimating New Value</a></h3>
+                <p tal:content="python:view.limit_text(question.Description)">
+                   Im referring to the Kalman Filter Explanation. When applying the mentioned operation and when estimating the new value,
+                   I cannot do the operations mentioned since the matrix dimensions are not ...
+                </p>
+                <div class="authorPortraitMini" tal:define="creator question/Creator">
+                    <div tal:define="portrait python:here.portal_membership.getPersonalPortrait(creator);">
+                      <a href="" title="View profile"
+                         tal:attributes="href string:${portal_url}/author/${creator}"
+                         i18n:attributes="title"
+                         tal:omit-tag="python:creator=='Anonymous'">
+                        <img class="portraitPhoto"
+                             src="defaultUser.gif"
+                             alt=""
+                             border="0"
+                             tal:attributes="src portrait/absolute_url" />
+                      </a>
+                    </div>
+                    <div class="userName" tal:content="python:view.username(creator)">John Smith</div>
+                </div>
+            </div>
+          </div>
+
+          <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+      </div>
+
+    <div tal:replace="structure provider:plone.belowcontentbody" />
+
+  </div>
+</body>
+</html>

@@ -83,5 +83,9 @@
         name="comment_is_checked"
         factory=".indexers.comment_is_checked_others"
         />
+     <adapter
+        name="positive_ratings"
+        factory=".indexers.positive_ratings" />
+
 
 </configure>

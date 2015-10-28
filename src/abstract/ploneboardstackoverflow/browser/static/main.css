@@ -40,7 +40,7 @@
 }
 
 #LSResult {
-    margin: 0em 0px 0px -7em;
+    margin: 0 0 0 -7em;
 }
 
 .answerComment {
@@ -52,4 +52,32 @@
 .answerComment .boardCommentActions {
     padding-top: 0.2em;
     padding-bottom: 0.2em;
+}
+
+/* @@all-questions view */
+.allPBQuestions {
+    margin-right: 10%;
+}
+.allPBQuestions .questionItem {
+    clear: both;
+}
+.allPBQuestions .counts {
+    width: 15%;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    font-size: 110%;
+}
+.allPBQuestions .questionData {
+    padding-left: 15%;
+}
+.allPBQuestions .authorPortraitMini {
+    float: right;
+    min-width: 15%;
+}
+.allPBQuestions .authorPortraitMini {
+    text-align: center;
+}
+.allPBQuestions .authorPortraitMini img {
+    width: 50%;
 }
