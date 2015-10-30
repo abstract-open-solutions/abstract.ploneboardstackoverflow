@@ -59,3 +59,18 @@ def migrateTo1010(context):
     addKeyToCatalog(context, (('is_main_comment', 'BooleanIndex'),))
     logger.info('New index added')
     logger.info('Migrated to version 0.2')
+
+
+def migrateTo1020(context):
+    logger.info('Migrated to version 0.3')
+    setup = getToolByName(context, 'portal_setup')
+    logger.info('Change conversation default view')
+    setup.runImportStepFromProfile('profile-abstract.ploneboardstackoverflow:default', 'typeinfo')
+    catalog = getToolByName(context, 'portal_catalog')
+    logger.info('Change conversation view to all contents')
+    conversations = catalog(portal_type='PloneboardConversation')
+    for brain in conversations:
+        obj = brain.getObject()
+        obj.setLayout('threaded_conversation_view')
+    logger.info('Migrated to version 0.3')
+
